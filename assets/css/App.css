@@ -1,0 +1,109 @@
+/*****************************
+GLOBAL
+*****************************/
+a {
+	text-decoration: none;
+}
+
+/*****************************
+MAIN APPLICATION
+*****************************/
+
+/*****************************
+SHOWCASE
+*****************************/
+.showcase {
+	overflow: hidden;
+	color: #fff;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: relative;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	text-align: center;
+	margin: auto;
+}
+.showcase > .container-fluid {
+	position: absolute;
+	text-align: center;
+}
+
+/*****************************
+PARTICLE-JS
+*****************************/
+#tsparticles canvas {
+	width: 100%;
+	height: 100%;
+	position: relative !important;
+}
+#particles-js {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+#particles-js p {
+	color: #ffffff !important;
+}
+
+/*****************************
+GRID SYSTEM
+*****************************/
+.col {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	-moz-column-count: 3; /* Firefox */
+	column-count: 2;
+	column-gap: 1.25rem;
+	orphans: 1;
+	widows: 1;
+}
+
+.col article {
+	display: inline-block;
+	margin-bottom: 25px;
+}
+
+.col img {
+	width: 100%;
+	padding: 7px 0;
+}
+@media (max-width: 500px) {
+	.col {
+		-webkit-column-count: 1; /* Chrome, Safari, Opera */
+		-moz-column-count: 1; /* Firefox */
+		column-count: 1;
+	}
+}
+
+.col-blog {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+	column-gap: 1.25rem;
+	orphans: 1;
+	widows: 1;
+}
+
+.col-blog article {
+	display: inline-block;
+	margin-bottom: 25px;
+}
+
+.col-blog img {
+	width: 100%;
+	padding: 0px 0;
+}
+@media (max-width: 500px) {
+	.col-blog {
+		-webkit-column-count: 1; /* Chrome, Safari, Opera */
+		-moz-column-count: 1; /* Firefox */
+		column-count: 1;
+	}
+}
