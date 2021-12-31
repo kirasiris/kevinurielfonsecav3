@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
 // ACTIONS
 // HELPERS
 import Spinner from "@/layout/Spinner";
@@ -16,7 +14,7 @@ const singleWordPressTheme = ({ wp }) => {
 			className={`${wp.id}-${wp.slug}`}
 			data-tag={`${wp.category[0].slug}`}
 		>
-			<UseImage src={`${wp.thumbnail}`} />
+			<UseImage linkGiven={`/themes/${wp.slug}`} src={`${wp.thumbnail}`} />
 		</article>
 	);
 };

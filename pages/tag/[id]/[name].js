@@ -9,7 +9,7 @@ import SingleWordPressPost from "@/components/singleWordPressPost";
 import PageHeader from "@/layout/PageHeader";
 
 export const getServerSideProps = async (context) => {
-	const params = `?categories=${context.params.id}&page=1&per_page=10`;
+	const params = `?tags=${context.params.id}&page=1&per_page=10`;
 	const wordPressPostListing = (await getWordPressPosts(params)()) || [];
 
 	return {

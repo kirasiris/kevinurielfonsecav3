@@ -5,9 +5,9 @@ import Image from "next/image";
 import Nav from "react-bootstrap/Nav";
 import MyLogo from "@/images/site_logo.png";
 
-const Menu = () => {
+const Menu = ({ classGiven }) => {
 	return (
-		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+		<Navbar collapseOnSelect expand="lg" className={classGiven} variant="dark">
 			<Container fluid>
 				<Navbar.Brand href="/">
 					<Image

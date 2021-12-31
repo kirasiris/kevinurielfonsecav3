@@ -32,11 +32,13 @@ const Home = ({ params, serverWordPressListingPosts, router }) => {
 					margin-bottom: 0px !important;
 					position: absolute !important;
 					width: 100% !important;
+					
 				}
-				#__next .bg-dark: {
+				.bg-dark: {
 					background-color:transparent !important;
 				}
 			`}
+			menuVariantColor="bg-transparent"
 		>
 			<section
 				className="showcase"

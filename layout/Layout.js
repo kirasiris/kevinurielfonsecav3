@@ -28,6 +28,7 @@ const Layout = ({
 	cssInline,
 	jsLink,
 	children,
+	menuVariantColor = "bg-dark",
 }) => {
 	return (
 		<>
@@ -122,7 +123,7 @@ const Layout = ({
 				)}
 				{cssInline && <style>{cssInline}</style>}
 			</Head>
-			<Menu />
+			<Menu classGiven={menuVariantColor} />
 			<main>{children}</main>
 			<Footer />
 		</>

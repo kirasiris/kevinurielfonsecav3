@@ -6,9 +6,10 @@ import Layout from "@/layout/Layout";
 import { getWordPressPosts } from "@/actions/wordpress";
 import NothingFoundAlert from "@/layout/NothingFoundAlert";
 import SingleWordPressPost from "@/components/singleWordPressPost";
+import PageHeader from "@/layout/PageHeader";
 
 export const getServerSideProps = async (context) => {
-	const params = `?page=1&per_page=15`;
+	const params = `?page=1&per_page=10`;
 	const wordPressPostListing = (await getWordPressPosts(params)()) || [];
 
 	return {
@@ -22,6 +23,7 @@ export const getServerSideProps = async (context) => {
 const Blog = ({ params, serverWordPressListingPosts, router }) => {
 	return (
 		<Layout title={`Blog`}>
+			<PageHeader title="Blog" />
 			<div className="container mt-3">
 				<Row>
 					{serverWordPressListingPosts?.length > 0 ? (

@@ -7,6 +7,7 @@ import Layout from "@/layout/Layout";
 import { getWordPressThemes } from "@/actions/wordpress";
 import NothingFoundAlert from "@/layout/NothingFoundAlert";
 import SingleWordPressTheme from "@/components/singleWordPressTheme";
+import PageHeader from "@/layout/PageHeader";
 
 export const getServerSideProps = async (context) => {
 	const params = `/products/?key=caa36abc98b9e352067b20c691e313aa&token=01aac80d63367e87ee3aabfa6f1c3f52&page=-1`;
@@ -23,6 +24,7 @@ export const getServerSideProps = async (context) => {
 const Portfolio = ({ params, serverWordPressListingThemes, router }) => {
 	return (
 		<Layout title={`Themes`}>
+			<PageHeader title="Themes" />
 			<div className="container mt-3">
 				<Row>
 					<Col>

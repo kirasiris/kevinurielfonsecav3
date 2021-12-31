@@ -98,10 +98,9 @@ export const getWordPressThemes = (params) => async (dispatch) => {
 // @route   GET /api/v1/extras/parkinglots
 // @access  Private
 // @status  DONE
-export const getWordPressTheme = (params) => async (dispatch) => {
+export const getWordPressTheme = (id) => async (dispatch) => {
 	try {
-		const res = await api.get(`/posts${params}`);
-
+		const res = await api.get(`/posts/${id}`);
 		return res.data;
 	} catch (err) {
 		// const error = err.response.data.message;
