@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
 // ACTIONS
 // HELPERS
 import Spinner from "@/layout/Spinner";
@@ -14,13 +12,18 @@ const singleWordPressComment = ({ comment }) => {
 	) : (
 		<div className="d-flex mb-3" id={`comment-${comment.id}`}>
 			<div className="flex-shrink-0">
-				<a>
+				<a
+					href={`${comment.author_url}`}
+					target="_blank"
+					rel="noreferrer noopener nofollow"
+				>
 					<UseImage src={`${comment.author_avatar_urls["48"]}`} />
 				</a>
 			</div>
 			<div className="flex-grow-1 ms-3">
-				{/* <FetchHtml text={`${comment.content.rendered}`} /> */}
-				{comment.content.rendered}
+				{comment.author_name}
+				<FetchHtml text={`${comment.content.rendered}`} />
+				{console.log(comment)}
 			</div>
 		</div>
 	);

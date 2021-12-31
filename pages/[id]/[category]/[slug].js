@@ -19,6 +19,7 @@ import Content from "@/layout/Container";
 import Sidebar from "@/layout/Sidebar";
 import PageHeader from "@/layout/PageHeader";
 import Meta from "@/layout/Meta";
+import FetchHtml from "@/layout/FetchHtml";
 
 export const getServerSideProps = async (context) => {
 	const params = `${context.query.id}`;
@@ -58,10 +59,14 @@ const SingleBlog = ({
 				/>
 				<Row>
 					{serverWordPressPost.template === `template-full-width.php` ? (
-						<Content fullWidth>{serverWordPressPost.content.rendered}</Content>
+						<Content fullWidth>
+							<FetchHtml text={serverWordPressPost.content.rendered} />
+						</Content>
 					) : (
 						<>
-							<Content>{serverWordPressPost.content.rendered}</Content>
+							<Content>
+								<FetchHtml text={serverWordPressPost.content.rendered} />
+							</Content>
 							<Sidebar>SIDEBAR</Sidebar>
 						</>
 					)}

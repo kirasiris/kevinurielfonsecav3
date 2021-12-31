@@ -10,7 +10,7 @@ const FetchHtml = ({ text = `` }) => {
 			<div
 				className="fetchHtml"
 				dangerouslySetInnerHTML={{
-					__html: ReactHtmlParser(text.replace(/\n\r?/g, "<br />")),
+					__html: text.replace(/\n\r?/g, ""),
 				}}
 			></div>
 		)
