@@ -15,7 +15,9 @@ const Meta = ({ meta, categories = [], tags = [], isThemeArchive = false }) => {
 										key={category.id ? category.id : index}
 										href={`/themes/category/${category.slug}`}
 									>
-										{category.name}
+										<a className="me-1 btn btn-xs btn-default">
+											{category.name}
+										</a>
 									</Link>
 								))}
 
@@ -27,7 +29,7 @@ const Meta = ({ meta, categories = [], tags = [], isThemeArchive = false }) => {
 											key={tag.id ? tag.id : index}
 											href={`/themes/tag/${tag.slug}`}
 										>
-											{tag.name}
+											<a className="me-1 btn btn-xs btn-default">{tag.name}</a>
 										</Link>
 									))}
 								</>
@@ -41,7 +43,9 @@ const Meta = ({ meta, categories = [], tags = [], isThemeArchive = false }) => {
 										key={category.id ? category.id : index}
 										href={`/category/${category.id}/${category.slug}`}
 									>
-										{category.name}
+										<a className="me-1 btn btn-xs btn-default">
+											{category.name}
+										</a>
 									</Link>
 								))}
 
@@ -53,7 +57,7 @@ const Meta = ({ meta, categories = [], tags = [], isThemeArchive = false }) => {
 											key={tag.id ? tag.id : index}
 											href={`/tag/${tag.id}/${tag.slug}`}
 										>
-											{tag.name}
+											<a className="me-1 btn btn-xs btn-default">{tag.name}</a>
 										</Link>
 									))}
 								</>

@@ -17,7 +17,8 @@ iframe.youtube-player {
 	width: 100%;
 }
 
-.wp-block-code {
+.wp-block-code,
+.wp-block-preformatted {
 	background-color: #000000;
 }
 
