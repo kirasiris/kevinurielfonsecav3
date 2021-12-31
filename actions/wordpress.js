@@ -38,7 +38,7 @@ export const getWordPressPosts = (params) => async (dispatch) => {
 // @status  DONE
 export const getWordPressPost = (id) => async (dispatch) => {
 	try {
-		const res = await api.get(`/extras/parkinglots/${id}`);
+		const res = await api.get(`/posts/${id}`);
 
 		return res.data;
 	} catch (err) {
@@ -101,6 +101,106 @@ export const getWordPressThemes = (params) => async (dispatch) => {
 export const getWordPressTheme = (params) => async (dispatch) => {
 	try {
 		const res = await api.get(`/posts${params}`);
+
+		return res.data;
+	} catch (err) {
+		// const error = err.response.data.message;
+		const error = err?.response?.data?.error?.errors;
+		const errors = err?.response?.data?.errors;
+
+		if (error) {
+			// dispatch(setAlert(error, 'danger'));
+			error &&
+				Object.entries(error).map(([, value]) => toast.error(value.message));
+		}
+
+		if (errors) {
+			errors.forEach((error) => toast.error(error.msg));
+		}
+
+		toast.error(err?.response?.statusText);
+		return { msg: err?.response?.statusText, status: err?.response?.status };
+	}
+};
+
+export const getWordPressComments = (params) => async (dispatch) => {
+	try {
+		const res = await api.get(`/comments${params}`);
+
+		return res.data;
+	} catch (err) {
+		// const error = err.response.data.message;
+		const error = err?.response?.data?.error?.errors;
+		const errors = err?.response?.data?.errors;
+
+		if (error) {
+			// dispatch(setAlert(error, 'danger'));
+			error &&
+				Object.entries(error).map(([, value]) => toast.error(value.message));
+		}
+
+		if (errors) {
+			errors.forEach((error) => toast.error(error.msg));
+		}
+
+		toast.error(err?.response?.statusText);
+		return { msg: err?.response?.statusText, status: err?.response?.status };
+	}
+};
+
+export const getWordPressPages = (params) => async (dispatch) => {
+	try {
+		const res = await api.get(`/pages${params}`);
+
+		return res.data;
+	} catch (err) {
+		// const error = err.response.data.message;
+		const error = err?.response?.data?.error?.errors;
+		const errors = err?.response?.data?.errors;
+
+		if (error) {
+			// dispatch(setAlert(error, 'danger'));
+			error &&
+				Object.entries(error).map(([, value]) => toast.error(value.message));
+		}
+
+		if (errors) {
+			errors.forEach((error) => toast.error(error.msg));
+		}
+
+		toast.error(err?.response?.statusText);
+		return { msg: err?.response?.statusText, status: err?.response?.status };
+	}
+};
+
+export const getWordPressCategories = (params) => async (dispatch) => {
+	try {
+		const res = await api.get(`/categories${params}`);
+
+		return res.data;
+	} catch (err) {
+		// const error = err.response.data.message;
+		const error = err?.response?.data?.error?.errors;
+		const errors = err?.response?.data?.errors;
+
+		if (error) {
+			// dispatch(setAlert(error, 'danger'));
+			error &&
+				Object.entries(error).map(([, value]) => toast.error(value.message));
+		}
+
+		if (errors) {
+			errors.forEach((error) => toast.error(error.msg));
+		}
+
+		toast.error(err?.response?.statusText);
+		return { msg: err?.response?.statusText, status: err?.response?.status };
+	}
+};
+
+export const getWordPressTags = (params) => async (dispatch) => {
+	try {
+		const res = await api.get(`/tags${params}`);
 
 		return res.data;
 	} catch (err) {

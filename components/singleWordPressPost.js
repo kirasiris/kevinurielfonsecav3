@@ -20,7 +20,9 @@ const singleWordPressPost = ({ wp }) => {
 					}}
 				>
 					<h1>
-						<Link href={`/blog/${wp.id}/${wp.categories[0]}/${wp.slug}`}>
+						<Link
+							href={`/${wp.id}/${wp.category_name.toLowerCase()}/${wp.slug}`}
+						>
 							{wp.title.rendered}
 						</Link>
 					</h1>
@@ -30,7 +32,9 @@ const singleWordPressPost = ({ wp }) => {
 						)}
 					</Card.Text>
 					<h2>
-						<Link href={`/blog/${wp.id}/${wp.categories[0]}/${wp.slug}`}>
+						<Link
+							href={`/${wp.id}/${wp.category_name.toLowerCase()}/${wp.slug}`}
+						>
 							<a>Read more</a>
 						</Link>
 					</h2>
