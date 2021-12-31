@@ -67,7 +67,7 @@ export const getWordPressPost = (id) => async (dispatch) => {
 // @status  DONE
 export const getWordPressThemes = (params) => async (dispatch) => {
 	try {
-		const res = await axios.get(`${API_URL}/edd-api${params}`, {
+		const res = await axios.get(`${API_URL}/edd-api/v2${params}`, {
 			headers: {
 				"Content-Type": `application/json`,
 			},
@@ -100,7 +100,11 @@ export const getWordPressThemes = (params) => async (dispatch) => {
 // @status  DONE
 export const getWordPressTheme = (id) => async (dispatch) => {
 	try {
-		const res = await api.get(`/posts/${id}`);
+		const res = await axios.get(`${API_URL}/edd-api/v2${id}`, {
+			headers: {
+				"Content-Type": `application/json`,
+			},
+		});
 		return res.data;
 	} catch (err) {
 		// const error = err.response.data.message;

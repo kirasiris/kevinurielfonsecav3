@@ -14,7 +14,10 @@ const singleWordPressTheme = ({ wp }) => {
 			className={`${wp.id}-${wp.slug}`}
 			data-tag={`${wp.category[0].slug}`}
 		>
-			<UseImage linkGiven={`/themes/${wp.slug}`} src={`${wp.thumbnail}`} />
+			<UseImage
+				linkGiven={`/themes/${wp.id}/${wp.slug}`}
+				src={`${wp.thumbnail}`}
+			/>
 		</article>
 	);
 };

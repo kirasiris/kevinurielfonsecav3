@@ -10,7 +10,7 @@ import SingleWordPressTheme from "@/components/singleWordPressTheme";
 import PageHeader from "@/layout/PageHeader";
 
 export const getServerSideProps = async (context) => {
-	const params = `/products/?page=-1`;
+	const params = `/products/?category=${context.query.slug}&page=-1`;
 	const wordPressThemeListing = (await getWordPressThemes(params)()) || [];
 
 	return {
@@ -22,8 +22,13 @@ export const getServerSideProps = async (context) => {
 };
 
 const Portfolio = ({ params, serverWordPressListingThemes, router }) => {
+	console.log(router);
 	return (
-		<Layout title={`Themes`}>
+		<Layout
+			title={`${router.query.slug.replace(/(^|\s)\S/g, (letter) =>
+				letter.toUpperCase()
+			)}`}
+		>
 			<PageHeader title="Themes" />
 			<div className="container mt-3">
 				<Row>

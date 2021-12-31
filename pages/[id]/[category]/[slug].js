@@ -1,11 +1,7 @@
 import { withRouter } from "next/router";
 // ACTIONS
 // HELPERS
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
 import Layout from "@/layout/Layout";
 import {
 	getWordPressPost,
@@ -13,7 +9,6 @@ import {
 	getWordPressCategories,
 	getWordPressTags,
 } from "@/actions/wordpress";
-import NothingFoundAlert from "@/layout/NothingFoundAlert";
 import SingleWordPressComment from "@/components/singleWordPressComment";
 import Content from "@/layout/Container";
 import Sidebar from "@/layout/Sidebar";
