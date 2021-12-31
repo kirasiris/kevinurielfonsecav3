@@ -1,4 +1,3 @@
-import ReactHtmlParser from "react-html-parser";
 // ACTIONS
 // HELPERS
 // REACTBOOTSTRAP

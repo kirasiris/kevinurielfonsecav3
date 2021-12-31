@@ -8,7 +8,8 @@ import NothingFoundAlert from "@/layout/NothingFoundAlert";
 import SingleWordPressPost from "@/components/singleWordPressPost";
 
 export const getServerSideProps = async (context) => {
-	const params = `?page=1&per_page=15`;
+	console.log(context);
+	const params = `?categories=${context.params.id}&page=1&per_page=10`;
 	const wordPressPostListing = (await getWordPressPosts(params)()) || [];
 
 	return {

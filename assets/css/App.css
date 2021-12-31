@@ -13,6 +13,27 @@ img {
 /*****************************
 MAIN APPLICATION
 *****************************/
+iframe.youtube-player {
+	width: 100%;
+}
+
+.wp-block-code {
+	background-color: #000000;
+}
+
+.wp-block-code code {
+	display: block;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.wp-block-table table {
+	color: #ffffff;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+	color: #0c0;
+}
 
 /*****************************
 SHOWCASE

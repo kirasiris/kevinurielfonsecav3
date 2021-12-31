@@ -70,13 +70,14 @@ const SingleBlog = ({
 							<Sidebar>SIDEBAR</Sidebar>
 						</>
 					)}
-					<Content fullWidth>
-						<h1>COMMENTS</h1>
-						{serverWordPressComments?.length > 0 &&
-							serverWordPressComments.map((comment, index) => (
+					{serverWordPressComments?.length > 0 && (
+						<Content fullWidth>
+							<h1>COMMENTS</h1>
+							{serverWordPressComments.map((comment, index) => (
 								<SingleWordPressComment key={comment.id} comment={comment} />
 							))}
-					</Content>
+						</Content>
+					)}
 				</Row>
 			</div>
 		</Layout>

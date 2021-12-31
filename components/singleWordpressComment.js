@@ -21,9 +21,14 @@ const singleWordPressComment = ({ comment }) => {
 				</a>
 			</div>
 			<div className="flex-grow-1 ms-3">
-				{comment.author_name}
+				<a
+					href={`${comment.author_url}`}
+					target="_blank"
+					rel="noreferrer noopener nofollow"
+				>
+					{comment.author_name}
+				</a>
 				<FetchHtml text={`${comment.content.rendered}`} />
-				{console.log(comment)}
 			</div>
 		</div>
 	);

@@ -9,7 +9,10 @@ const Meta = ({ meta, categories = [], tags = [] }) => {
 				<Col xl={`12`}>
 					{categories?.length > 0 &&
 						categories.map((category, index) => (
-							<Link key={category.id} href={`/category/${category.slug}`}>
+							<Link
+								key={category.id}
+								href={`/category/${category.id}/${category.slug}`}
+							>
 								{category.name}
 							</Link>
 						))}
@@ -18,7 +21,7 @@ const Meta = ({ meta, categories = [], tags = [] }) => {
 						<>
 							Tags:
 							{tags.map((tag, index) => (
-								<Link key={tag.id} href={`/tag/${tag.slug}`}>
+								<Link key={tag.id} href={`/tag/${tag.id}/${tag.slug}`}>
 									{tag.name}
 								</Link>
 							))}
