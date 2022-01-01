@@ -5,6 +5,7 @@ import Spinner from "@/layout/Spinner";
 // REACTBOOTSTRAP
 import Card from "react-bootstrap/Card";
 import UseImage from "@/layout/UseImage";
+import FetchHtml from "@/layout/FetchHtml";
 // NESTED COMPONENTS
 
 const singleWordPressPost = ({ wp }) => {
@@ -28,7 +29,9 @@ const singleWordPressPost = ({ wp }) => {
 					</h1>
 					<Card.Text>
 						{!wp.excerpt.protected && (
-							<Card.Body>{wp.excerpt.rendered}</Card.Body>
+							<Card.Body>
+								<FetchHtml text={`${wp.excerpt.rendered}`} />
+							</Card.Body>
 						)}
 					</Card.Text>
 					<h2>
