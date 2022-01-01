@@ -5,8 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "@/layout/Layout";
 import { getWordPressTheme } from "@/actions/wordpress";
-import NothingFoundAlert from "@/layout/NothingFoundAlert";
-import SingleWordPressTheme from "@/components/singleWordPressTheme";
 import PageHeader from "@/layout/PageHeader";
 import FetchHtml from "@/layout/FetchHtml";
 import UseImage from "@/layout/UseImage";
