@@ -44,7 +44,13 @@ const SingleBlog = ({
 	router,
 }) => {
 	return (
-		<Layout title={`${serverWordPressPost.title.rendered}`}>
+		<Layout
+			title={`${serverWordPressPost.title.rendered}`}
+			description={`${serverWordPressPost.excerpt.rendered}`}
+			postImage={`${serverWordPressPost.fimg_url}`}
+			createdAt={`${serverWordPressPost.date}`}
+			updatedAt={`${serverWordPressPost.modified}`}
+		>
 			<PageHeader title={`${serverWordPressPost.title.rendered}`} />
 			<div className="container mt-3">
 				<Meta

@@ -24,7 +24,13 @@ export const getServerSideProps = async (context) => {
 
 const SinglePortfolio = ({ params, serverWordPressTheme, router }) => {
 	return (
-		<Layout title={`${serverWordPressTheme[0].info.title}`}>
+		<Layout
+			title={`${serverWordPressTheme[0].info.title}`}
+			description={`${serverWordPressTheme[0].info.excerpt}`}
+			postImage={`${serverWordPressTheme[0].info.thumbnail}`}
+			createdAt={`${serverWordPressTheme[0].info.create_date}`}
+			updatedAt={`${serverWordPressTheme[0].info.modified_date}`}
+		>
 			<PageHeader title="Themes" />
 			<div className="container mt-3">
 				<Meta
