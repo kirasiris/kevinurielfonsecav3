@@ -7,7 +7,12 @@ import MyLogo from "@/images/site_logo.png";
 
 const Menu = ({ classGiven }) => {
 	return (
-		<Navbar collapseOnSelect expand="lg" className={classGiven} variant="dark">
+		<Navbar
+			collapseOnSelect
+			expand="lg"
+			className={`${classGiven} me-0 pb-2 pt-2`}
+			variant="dark"
+		>
 			<Container fluid>
 				<Navbar.Brand href="/">
 					<Image
