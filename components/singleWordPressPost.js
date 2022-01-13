@@ -21,11 +21,18 @@ const singleWordPressPost = ({ wp }) => {
 					}}
 				>
 					<h1>
-						<Link
+						{/* <Link
 							href={`/${wp.id}/${wp.category_name.toLowerCase()}/${wp.slug}`}
-						>
-							{wp.title.rendered}
-						</Link>
+						> */}
+						<FetchHtml
+							text={wp.title.rendered}
+							isLink={true}
+							urlGiven={`/${wp.id}/${wp.category_name.toLowerCase()}/${
+								wp.slug
+							}`}
+						/>
+
+						{/* </Link> */}
 					</h1>
 					<Card.Text>
 						{!wp.excerpt.protected && (
