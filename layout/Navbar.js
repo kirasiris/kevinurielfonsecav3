@@ -14,7 +14,7 @@ const Menu = ({ classGiven }) => {
 			variant="dark"
 		>
 			<Container fluid>
-				<Navbar.Brand href="/">
+				<Navbar.Brand href="/" className="my-navbar-brand">
 					<Image
 						alt=""
 						src={`${MyLogo.src}`}
