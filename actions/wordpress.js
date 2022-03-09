@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import api from "@/helpers/api";
 import axios from "axios";
-import { API_URL, APP_NAME } from "@/config";
+import { API_URL } from "@/config";
 
 // @desc    Get all parking lots
 // @route   GET /api/v1/extras/parkinglots
@@ -204,6 +204,33 @@ export const getWordPressCategories = (params) => async (dispatch) => {
 export const getWordPressTags = (params) => async (dispatch) => {
 	try {
 		const res = await api.get(`/tags${params}`);
+
+		return res.data;
+	} catch (err) {
+		// const error = err.response.data.message;
+		const error = err?.response?.data?.error?.errors;
+		const errors = err?.response?.data?.errors;
+
+		if (error) {
+			// dispatch(setAlert(error, 'danger'));
+			error &&
+				Object.entries(error).map(([, value]) => toast.error(value.message));
+		}
+
+		if (errors) {
+			errors.forEach((error) => toast.error(error.msg));
+		}
+
+		toast.error(err?.response?.statusText);
+		return { msg: err?.response?.statusText, status: err?.response?.status };
+	}
+};
+
+export const getWordPressThemeReadMe = (repoName) => async () => {
+	try {
+		const res = await axios.get(
+			`https://raw.githubusercontent.com/kirasiris/${repoName}/master/README.md`
+		);
 
 		return res.data;
 	} catch (err) {

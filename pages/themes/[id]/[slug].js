@@ -4,7 +4,10 @@ import { withRouter } from "next/router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "@/layout/Layout";
-import { getWordPressTheme } from "@/actions/wordpress";
+import {
+	getWordPressTheme,
+	getWordPressThemeReadMe,
+} from "@/actions/wordpress";
 import PageHeader from "@/layout/PageHeader";
 import FetchHtml from "@/layout/FetchHtml";
 import UseImage from "@/layout/UseImage";
@@ -14,15 +17,26 @@ export const getServerSideProps = async (context) => {
 	const params = `/products/?product=${context.query.id}`;
 	const wordPressTheme = (await getWordPressTheme(params)()) || null;
 
+	const wordPressThemeReadMe =
+		(await getWordPressThemeReadMe(
+			wordPressTheme.products[0].info.title.toLowerCase().replace(/\s/gm, "")
+		)()) || null;
+
 	return {
 		props: {
 			params: params,
 			serverWordPressTheme: wordPressTheme.products,
+			serverWordPressThemeReadMe: wordPressThemeReadMe,
 		},
 	};
 };
 
-const SinglePortfolio = ({ params, serverWordPressTheme, router }) => {
+const SinglePortfolio = ({
+	params,
+	serverWordPressTheme,
+	serverWordPressThemeReadMe,
+	router,
+}) => {
 	return (
 		<Layout
 			title={`${serverWordPressTheme[0].info.title}`}
@@ -49,6 +63,13 @@ const SinglePortfolio = ({ params, serverWordPressTheme, router }) => {
 					</Col>
 					<Col lg={`5`}>
 						<FetchHtml text={serverWordPressTheme[0].info.content} />
+
+						{serverWordPressThemeReadMe.status !== 404 && (
+							<>
+								<hr />
+								{serverWordPressThemeReadMe}
+							</>
+						)}
 					</Col>
 				</Row>
 			</div>
