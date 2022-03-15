@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import api from "@/helpers/api";
 import axios from "axios";
-import { API_URL } from "@/config";
+import { API_URL, GITHUB_TOKEN } from "@/config";
 
 // @desc    Get all parking lots
 // @route   GET /api/v1/extras/parkinglots
@@ -229,7 +229,13 @@ export const getWordPressTags = (params) => async (dispatch) => {
 export const getWordPressThemeReadMe = (repoName) => async () => {
 	try {
 		const res = await axios.get(
-			`https://raw.githubusercontent.com/kirasiris/${repoName}/master/README.md`
+			`https://api.github.com/repos/kirasiris/${repoName}/readme`,
+			{
+				accept: "application/vnd.github.v3+json",
+				headers: {
+					Authorization: { GITHUB_TOKEN },
+				},
+			}
 		);
 
 		return res.data;

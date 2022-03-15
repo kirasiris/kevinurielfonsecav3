@@ -12,6 +12,7 @@ import PageHeader from "@/layout/PageHeader";
 import FetchHtml from "@/layout/FetchHtml";
 import UseImage from "@/layout/UseImage";
 import Meta from "@/layout/Meta";
+import { readMEDecoder } from "@/helpers/utilities";
 
 export const getServerSideProps = async (context) => {
 	const params = `/products/?product=${context.query.id}`;
@@ -22,11 +23,22 @@ export const getServerSideProps = async (context) => {
 			wordPressTheme.products[0].info.title.toLowerCase().replace(/\s/gm, "")
 		)()) || null;
 
+	/*
+	 *
+	 * README
+	 *
+	 */
+	const readMEContent = readMEDecoder(
+		wordPressThemeReadMe.content
+			? wordPressThemeReadMe.content
+			: "Tm8gcmVhZE1FIGZpbGU="
+	);
+
 	return {
 		props: {
 			params: params,
 			serverWordPressTheme: wordPressTheme.products,
-			serverWordPressThemeReadMe: wordPressThemeReadMe,
+			serverWordPressThemeReadMe: readMEContent,
 		},
 	};
 };
@@ -64,10 +76,10 @@ const SinglePortfolio = ({
 					<Col lg={`5`}>
 						<FetchHtml text={serverWordPressTheme[0].info.content} />
 
-						{serverWordPressThemeReadMe.status !== 404 && (
+						{serverWordPressThemeReadMe && (
 							<>
 								<hr />
-								{serverWordPressThemeReadMe}
+								<FetchHtml text={serverWordPressThemeReadMe} />
 							</>
 						)}
 					</Col>

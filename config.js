@@ -7,6 +7,7 @@ export const APP_DESCRIPTION = publicRuntimeConfig.WEBSITE_DESCRIPTION;
 export const API_URL = publicRuntimeConfig.PRODUCTION
 	? "https://kevinurielfonseca.me"
 	: "http://localhost:5000";
+export const GITHUB_TOKEN = publicRuntimeConfig.GITHUB_PERSONAL_TOKEN;
 export const PUBLIC_URL = publicRuntimeConfig.PRODUCTION
 	? "kevinurielfonseca.vercel.app"
 	: "http://localhost:3000";

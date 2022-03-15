@@ -1,3 +1,6 @@
+import showdown from "showdown";
+import base64 from "base-64";
+
 export const getMetaImage = async (url) => {
 	if (typeof window !== "undefined") {
 		return new Promise(async (resolve, reject) => {
@@ -18,4 +21,12 @@ export const runImage = async (url) => {
 	};
 
 	return object;
+};
+
+export const readMEDecoder = (text) => {
+	const converter = new showdown.Converter();
+	const readMEContentBase64 = base64.decode(text);
+	const textConverted = converter.makeHtml(readMEContentBase64);
+
+	return textConverted;
 };
